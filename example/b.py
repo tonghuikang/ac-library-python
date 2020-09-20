@@ -9,7 +9,7 @@ from collections import Counter, defaultdict
 # import numpy as np
 # import scipy
 
-from atcoder.math import crt
+# from atcoder.math import crt
 
 
 def prime_factors(nr):
@@ -31,19 +31,25 @@ def prime_factors(nr):
 def solve(k):  # fix inputs here
     console("----- solving ------")
 
-    console(prime_factors(k))
-    console(prime_factors(1100144))
-    console(prime_factors(1100144+1))
+    # console(prime_factors(k))
+    # console(prime_factors(1100144))
+    # console(prime_factors(1100144+1))
+    # console((1100144+1)*(1100144)%7575345)
 
-    y = crt([1,0], [8,k])
-    console(y)
+    # y = crt([1,0], [8,k//8])
+    # console(k,y)
 
     # let z be a multple of 2k
     # check if 8z+1 is a square
-    for z in range(k, 10**25, k):
-        y = 8*z + 1
+    for z in range(8*k+1, 10**25, 8*k):
+        y = z
         if math.isqrt(y)**2 == y:
-            return (math.isqrt(y) - 1) // 2
+            res = (math.isqrt(y) - 1) // 2
+            # console(prime_factors(y))
+            # console(prime_factors(res))
+            # console(prime_factors(res+1))
+            # console(prime_factors((res+1)*res))
+            return res
 
     return -1
 
