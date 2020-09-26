@@ -182,7 +182,7 @@ def solve(arr, k):  # fix inputs here
     console("----- solving ------")
     console(arr,k)
 
-    segtree = SegTree(max, 0, LARGE+1)
+    segtree = SegTree(max, -1, LARGE+2)
 
     maxres = 0
 
@@ -190,7 +190,7 @@ def solve(arr, k):  # fix inputs here
         maxval = 0
 
         maxsmall = max(0, a - k)
-        minlarge = min(LARGE, a + k + 1)
+        minlarge = min(LARGE, a + k) + 1
         maxval = max(maxval, segtree.prod(maxsmall, minlarge))
 
         maxval += 1
